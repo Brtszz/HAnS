@@ -72,6 +72,8 @@ public class CodeAnnotationsSyntaxHighlighter extends SyntaxHighlighterBase {
         }
         else if (tokenType.equals(TokenType.BAD_CHARACTER)) {
             return BAD_CHAR_KEYS;
+        } else if (tokenType.equals(CodeAnnotationTypes.MISMATCHED_END_TAG)) {
+            return BAD_CHAR_KEYS;
         } else {
             return EMPTY_KEYS;
         }

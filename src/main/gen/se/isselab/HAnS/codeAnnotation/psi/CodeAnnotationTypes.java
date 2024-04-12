@@ -25,6 +25,7 @@ public interface CodeAnnotationTypes {
   IElementType OBRACKET = new CodeAnnotationTokenType("OBRACKET");
   IElementType SEPARATOR = new CodeAnnotationTokenType("SEPARATOR");
   IElementType SPACE = new CodeAnnotationTokenType("SPACE");
+  IElementType MISMATCHED_END_TAG = new CodeAnnotationElementType("MISSMARCHED_END_TAG");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
@@ -46,6 +47,9 @@ public interface CodeAnnotationTypes {
       }
       else if (type == PARAMETER) {
         return new CodeAnnotationParameterImpl(node);
+      }
+      else if (type == MISMATCHED_END_TAG) {
+        return new CodeAnnotationBeginmarkerImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }
